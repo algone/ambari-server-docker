@@ -15,15 +15,7 @@ RUN apt-get update
 RUN apt-get install -y ambari-server # && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN /usr/sbin/ambari-server setup -s
 
-COPY docker/ambari_gateway/start_ambari.sh /bin/
-ADD scripts /tmp/
-ADD conf /tmp/
-
-RUN chmod +x /tmp/install_serf.sh && \
-    chmod +x /tmp/install_prometheus.sh && \
-    chmod +x /tmp/start_node_collector.sh && \
-    /bin/bash /tmp/install_serf.sh eth0 lan warn && \
-    /bin/bash /tmp/install_prometheus.sh
+COPY start_ambari.sh /bin/
 
 RUN chmod +x /bin/start_ambari.sh
 
