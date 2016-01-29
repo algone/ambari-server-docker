@@ -21,7 +21,7 @@ RUN chmod +x /bin/start_ambari.sh
 
 #### Network
 
-EXPOSE 8080
+EXPOSE 8082
 
 #### Services
 
